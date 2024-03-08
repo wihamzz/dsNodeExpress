@@ -9,15 +9,15 @@
 <h2>Emprunt</h2>
 <main>
     <form action="emprunt" name="form" method="post">
-        <label for="montant">Montant de l'emprunt</label>
+        <label for="montant">Montant de l'emprunt (en €)</label>
         <input type="number" id="montant" name="montant" min="1000" max="10000000" required>
-        <label for="duree">Durée de l'emprunt</label>
+        <label for="duree">Durée de l'emprunt (en années)</label>
         <input type="number" id="duree" name="duree" min="1" max="20" required>
-        <label for="taux">Taux</label>
+        <label for="taux">Taux (en %)</label>
         <input type="number" id="taux" name="taux" min="0" max="20" required>
         <button type="submit">Calculer les mensualités</button>
     </form>
-    <div><%= resultatMensuel %></div>
+    <div><%=resultatMensuel%></div>
     <p class="error"> <%=erreur%></p>
 
 
