@@ -5,10 +5,10 @@ const port=8000;
 const app = express();
 
 const defautRoutes = require('./routes/defaut');
-const formRoutes = require('./routes/form');
 const loginRoutes = require('./routes/login');
-const connecteRoutes = require('./routes/connecte');
 const deconnectionRoutes = require('./routes/deconnection');
+const historiqueRoutes = require('./routes/historique');
+const empruntRoutes = require('./routes/emprunt');
 
 const session = require('express-session');
 
@@ -20,11 +20,12 @@ app.use(express.static(path.join(__dirname,'public')));
 app.use(session({ secret : "un secret", resave : false, saveUninitialized: false}));
 
 
-app.use(formRoutes.routes);
-app.use(loginRoutes.routes);
+app.use(loginRoutes);
 app.use(deconnectionRoutes);
-app.use(connecteRoutes);
+app.use(historiqueRoutes);
 app.use(defautRoutes);
+app.use(empruntRoutes);
+
 
 
 

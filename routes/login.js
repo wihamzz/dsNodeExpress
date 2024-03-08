@@ -2,25 +2,31 @@ const path = require('path');
 const express = require('express');
 const router = express.Router();
 
+
+
 router.get('/login', (req, res, next) => {
     let isConnected = false;
     if (req.session && req.session.isLogin === true){
-        //res.redirect("/connecte");
         isConnected = true;
+        res.redirect("/");
     }
-
-    res.render(path.join(__dirname,"..","views","login.ejs"),{pageTitle: "login", isConnected: isConnected});
-
+    res.render(path.join(__dirname,"..","views","login.ejs"),{pageTitle: "login", isConnected: isConnected, erreur: ""});
 });
 
 router.post('/login', (req, res, next) => {
     console.log(Object.assign({},req.body));
     const resForm = Object.assign({},req.body);
-    //res.setHeader('Set-Cookie', 'cookieForm');
-    req.session.isLogin = true;
-    req.session.username = resForm.login;
+    if (resForm.login === "user" && resForm.mdp === "user"){
+        req.session.username = resForm.login;
+        req.session.isLogin = true;
+        res.redirect('/')
+    }
+    else {
+        let isConnected = false;
+        res.render(path.join(__dirname,"..","views","login.ejs"),{pageTitle: "login", isConnected: isConnected, erreur: "Mauvais login ou mot de passe"});
+    }
     console.log(req.session);
-    res.redirect('/');
 });
 
-exports.routes = router;
+module.exports = router;
+

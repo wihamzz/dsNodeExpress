@@ -1,0 +1,34 @@
+<%- include('layout/debut.ejs')%>
+
+<body>
+
+<%- include('layout/navigation.ejs')%>
+
+<h1>Historique</h1>
+<main>
+    <h2 id="TabCalcul">Tableau de Calcul</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Capital</th>
+            <th>Taux</th>
+            <th>Années</th>
+            <th>Mois</th>
+            <th>Mensualité</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% for (const calcul of historique) { %>
+            <tr>
+                <td><%= calcul.capital %></td>
+                <td><%= calcul.taux %>%</td>
+                <td><%= calcul.duree %></td>
+                <td><%= calcul.duree * 12%> </td> <!-- Vous devez déterminer comment afficher le nombre de mois -->
+                <td><%= calcul.mensualite.toFixed(2) %></td>
+            </tr>
+        <% } %>
+        </tbody>
+    </table>
+</main>
+
+<%- include('layout/fin.ejs')%>
