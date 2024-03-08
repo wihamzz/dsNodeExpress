@@ -47,7 +47,7 @@ router.post('/emprunt', (req, res, next) => {
     let isConnected = true;
     res.render(path.join(__dirname,"..","views","emprunt.ejs"),
         {pageTitle: "emprunt",isConnected: isConnected, erreur: "",
-            resultatMensuel: "Le paiement mensuel pour un prêt de "+ capital +" avec un taux d'intérêt de "+ taux +" sur "+ duree +" ans est : "+ mensualite.toFixed(2)+"."});
+            resultatMensuel: "Le paiement mensuel pour un prêt de "+ capital +"€ avec un taux d'intérêt de "+ taux +"% sur "+ duree +" ans est : "+ mensualite.toFixed(2)+"€"});
 });
 
 // Définir la fonction de prêt avec des paramètres pour le montant du prêt, le taux d'intérêt et la durée du prêt
