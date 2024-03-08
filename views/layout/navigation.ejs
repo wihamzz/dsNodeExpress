@@ -1,0 +1,14 @@
+<header>
+    <h1>Une application WEB avec express</h1>
+    <nav>
+        <ul>
+            <li><a href="/">Accueil</a></li>
+            <li><a href="/form">Formulaire</a></li>
+            <li><a href="/login">Login</a></li>
+            <% if(isConnected === true){ %>
+                <li><a href="/connecte">Page connecte</a></li>
+                <li><a href="/deconnection">Se deconnecter</a></li>
+            <%}%>
+        </ul>
+    </nav>
+</header>

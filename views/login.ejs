@@ -1,0 +1,22 @@
+<%- include('layout/debut.ejs')%>
+
+</head>
+
+<body>
+
+<%- include('layout/navigation.ejs')%>
+
+<h2>Login</h2>
+<main>
+    <form action="login" name="form" method="post">
+        <label for="login">Login</label>
+        <input type="text" id="login" name="login">
+        <label for="mdp">Mot de passe</label>
+        <input type="text" id="mdp" name="mot de passe">
+        <button type="submit">Se connecter</button>
+    </form>
+
+
+</main>
+
+<%- include('layout/fin.ejs')%>

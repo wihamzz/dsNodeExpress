@@ -1,0 +1,23 @@
+<%- include('layout/debut.ejs')%>
+
+</head>
+
+<body>
+
+<%- include('layout/navigation.ejs')%>
+
+<main>
+    <h2>Page d'accueil</h2>
+    <p>Bonjour <%=username%> vous voici sur la page d'accueil</p>
+    <% if(accessMessage.length > 0) { %>
+    <ul>
+        <% for (let elt of accessMessage) { %>
+        <li><%= elt.message %></li>
+        <%}%>
+    </ul>
+    <%} else {%>
+    <p> il n'y a pas de message</p>
+    <%}%>
+</main>
+
+<%- include('layout/fin.ejs')%>

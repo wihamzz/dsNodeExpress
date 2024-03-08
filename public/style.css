@@ -1,0 +1,71 @@
+h1{
+    color: #27277c;
+}
+
+
+main{
+    height: 300px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    background-color: aliceblue;
+    border-radius: 5px;
+    margin: auto;
+    border: 1px solid #27277c;
+}
+h3{
+    text-align: center;
+}
+
+input{
+    height: 1.8em;
+    margin: 8px;
+}
+
+button{
+    background-color: #27277c;
+    color: white;
+    padding: 5px;
+    border-radius: 8px;
+    margin: 8px;
+}
+footer{
+    margin-top: 10px;
+    border-top: 1px solid #27277c;
+}
+
+nav{
+    display: flex;
+    margin-bottom: 10px;
+    padding: 5px;
+    border-bottom: 1px solid #27277c;
+    background-color: #27277c;
+    justify-content: space-between;
+    padding-right: 20px;
+}
+
+nav li{
+    display: inline-block;
+    padding: 8px;
+}
+
+nav a{
+    text-decoration: none;
+    color: white;
+    font-size: 1.4rem;
+}
+
+header{
+    display: flex;
+    flex-direction: column;
+}
+
+label{
+    margin: 8px;
+}
+
+.error{
+    color: red;
+}
