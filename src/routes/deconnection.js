@@ -5,8 +5,8 @@ const router = express.Router();
 const username = require('./login');
 
 router.get('/deconnection', (req, res, next) => {
-    console.log("nom utilisateur : ", username);
-    console.log(req.session);
+    //console.log("nom utilisateur : ", username);
+    //console.log(req.session);
     if (req.session && req.session.isLogin === true){
         //res.redirect("/connecte");
         //res.clearCookie("cookieForm");

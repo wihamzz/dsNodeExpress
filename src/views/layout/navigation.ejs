@@ -1,0 +1,16 @@
+<header>
+    <nav>
+        <ul>
+
+            <% if(isConnected === false){ %>
+                <li><a href="/">Accueil</a></li>
+                <li><a href="/login">Login</a></li>
+
+            <%} else{ %>
+                    <li><a href="/emprunt">Calculer ses mensualités</a></li>
+                    <li><a href="/historique">Historique</a></li>
+                    <li><a href="/deconnection">Se déconnecter</a></li>
+            <%}%>
+        </ul>
+    </nav>
+</header>
