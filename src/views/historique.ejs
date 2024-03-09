@@ -6,10 +6,18 @@
 
 <h1>Historique</h1>
 <main>
+    <label for="sortOption">Trier par :</label>
+    <select id="sortOption" onchange="sortTable()">
+        <option value="capital">Capital</option>
+        <option value="taux">Taux</option>
+        <option value="duree">Années</option>
+        <option value="mensualite">Mensualité</option>
+    </select>
+
     <h2 id="TabCalcul">Tableau de Calcul</h2>
-    <table>
+    <table id="historiqueTable">
         <thead>
-        <tr>
+        <tr id="tab-header">
             <th>Capital</th>
             <th>Taux</th>
             <th>Années</th>
@@ -20,15 +28,32 @@
         <tbody>
         <% for (const calcul of historique) { %>
             <tr>
-                <td><%= calcul.capital %></td>
-                <td><%= calcul.taux %>%</td>
-                <td><%= calcul.duree %></td>
-                <td><%= calcul.duree * 12%> </td> <!-- Vous devez déterminer comment afficher le nombre de mois -->
-                <td><%= calcul.mensualite.toFixed(2) %></td>
+                <td data-sort="capital"><%= calcul.capital %></td>
+                <td data-sort="taux"><%= calcul.taux %>%</td>
+                <td data-sort="duree"><%= calcul.duree %></td>
+                <td data-sort="mois"><%= calcul.duree * 12%></td>
+                <td data-sort="mensualite"><%= calcul.mensualite.toFixed(2) %></td>
             </tr>
         <% } %>
         </tbody>
     </table>
+
+    <script>
+        function sortTable() {
+            const sortOption = document.getElementById('sortOption').value;
+            const tableBody = document.querySelector('#historiqueTable tbody');
+            const rows = Array.from(tableBody.querySelectorAll('tr'));
+
+            rows.sort((a, b) => {
+                const aValue = parseFloat(a.querySelector(`td[data-sort=${sortOption}]`).innerText);
+                const bValue = parseFloat(b.querySelector(`td[data-sort=${sortOption}]`).innerText);
+                return aValue - bValue;
+            });
+
+            tableBody.innerHTML = '';
+            rows.forEach(row => tableBody.appendChild(row));
+        }
+    </script>
 </main>
 
 <%- include('layout/fin.ejs')%>
