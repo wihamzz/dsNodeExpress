@@ -1,7 +1,5 @@
 <%- include('layout/debut.ejs')%>
 
-</head>
-
 <body>
 
 <%- include('layout/navigation.ejs')%>
@@ -17,9 +15,12 @@
         <input type="number" id="taux" name="taux" min="0" max="20" required>
         <button type="submit">Calculer les mensualités</button>
     </form>
-    <div><%=resultatMensuel%></div>
-    <p class="error"> <%=erreur%></p>
-
+    <% if (resultatMensuel !== '') { %>
+        <div class="resultat-container custom-result">
+            <%= resultatMensuel %>
+        </div>
+    <% } %>
+    <p class="error"> <%= erreur %></p>
 
 
 </main>
